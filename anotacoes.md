@@ -23,8 +23,4 @@ pom.xml
 Jenkinsfile
 
 
-git add . && git commit -m "DevOps build"
-git push -u origin master
-
-
-http://localhost:8081/api/address?company=MuleSoft
+git add . && git commit -m "DevOps build" && git push -u origin master
