@@ -32,7 +32,7 @@ pipeline {
       }
     }
 
-    stage('Deploy Sandbox') {
+    stage('Deploy') {
       environment {
         ENVIRONMENT = 'Sandbox'
       }
@@ -42,15 +42,15 @@ pipeline {
       }
     }
 
-    stage('Deploy Production') {
-      environment {
-        ENVIRONMENT = 'Production'
-      }
-      steps {
-            // sh 'mvn -B -U -e -V clean -DskipTests package'
-            sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
-      }
-    }
+    // stage('Deploy Production') {
+    //   environment {
+    //     ENVIRONMENT = 'Production'
+    //   }
+    //   steps {
+    //         // sh 'mvn -B -U -e -V clean -DskipTests package'
+    //         sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
+    //   }
+    // }
 
   }
   
