@@ -4,7 +4,7 @@
 
 	<groupId>com.mycompany</groupId>
 	<artifactId>address-api</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <packaging>mule-application</packaging>
 
 	<name>address-api</name>
@@ -30,6 +30,21 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${MULE_VERSION}</muleVersion>
+						<!-- Deploy User Parameter -->
+						<username>${anypoint.username}</username>
+						<password>${anypoint.password}</password>
+						<!-- Environment Parameter -->
+						<environment>Sandbox</environment>
+						<applicationName>address-api</applicationName>
+						<!-- <businessGroup>Mulesoft Demo</businessGroup> -->
+						<businessGroupId>fe83db7a-c73a-437b-9bf1-e7ee83f4d07c</businessGroupId>
+						<workerType>Micro</workerType>
+						<objectStoreV2>true</objectStoreV2>
+						<skipDeploymentVerification>true</skipDeploymentVerification>
+					</cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
