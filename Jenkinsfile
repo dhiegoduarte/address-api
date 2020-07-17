@@ -55,10 +55,10 @@ pipeline {
                     )
                 }   
 
-      steps {
+      // steps {
             // sh 'mvn -B -U -e -V clean -DskipTests package'
             sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
-      }
+      // }
 
       } catch(err) { // timeout reached or input false org.jenkinsci.plugins.workflow.steps.FlowInterruptedException
                 echo "catch(err)"
