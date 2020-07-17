@@ -15,7 +15,7 @@ pipeline {
     WORKER = 'Micro'
     APP_NAME='address-api'
     PROD_TIME = "24"
-    PROD_UNIT = "HOURS" // SECONDS, MINUTES, HOURS
+    PROD_UNIT = "MINUTES" // SECONDS, MINUTES, HOURS
   }
 
   stages {
@@ -39,7 +39,6 @@ pipeline {
       steps {
             // sh 'mvn -B -U -e -V clean -DskipTests package'
             sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
-
       }
     }
 
@@ -48,17 +47,14 @@ pipeline {
         ENVIRONMENT = 'Production'
       }
 
-        
-
       steps {
         script {
-
-try {
-                timeout(time: var_PROD_TIME, unit: var_PROD_UNIT) {
-                    input(
-                        message: 'Deploy to PRODUCTION?'
-                    )
-                } 
+          try {
+            timeout(time: var_PROD_TIME, unit: var_PROD_UNIT) {
+                input(
+                    message: 'Deploy to PRODUCTION?'
+                )
+            } 
 
             // sh 'mvn -B -U -e -V clean -DskipTests package'
             sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
