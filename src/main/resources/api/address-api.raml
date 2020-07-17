@@ -1,0 +1,27 @@
+#%RAML 1.0
+title: Address API
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/229d6071-e938-4ae7-980e-52ea9c09a649/
+mediaType:
+  - application/json
+version: "1.0"
+/address:
+  get:
+    queryParameters:
+      company:
+        example: Example
+        type: string
+    responses:
+      "200":
+        body:
+          example:
+            strict: true
+            value:
+              company: MuleSoft
+              website: https://www.mulesoft.com/
+              addressLine: Mission St
+              number: "415"
+              reference: Near The City Club of San Francisco
+              state: CA
+              city: San Francisco
+              zip: "94105"
+          type: object
