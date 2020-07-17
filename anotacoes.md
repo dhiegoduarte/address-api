@@ -26,3 +26,33 @@ Jenkinsfile
 git add . && git commit -m "DevOps build" && git push -u origin master
 
 Usuário do jenkins com roles Cloud Admin em ambos as environments.
+
+---
+
+Criar MQ
+customer-credit-exceeded-queue
+customer-credit-reserved-queue
+order-queue
+
+Import exchange
+
+Customer credit api no cloudhub
+
+Orders API - local muleruntime registrado no Anypoint 
+cd /Users/dduarte/mule-enterprise-standalone-4.3.0/bin
+./mule
+
+Faz deploy via console anypoint
+
+Manage API - Exchange - Orders API - implementation url com ngrok (8082)
+
+Marcelo: http://customer-credit-api-ws.us-e2.cloudhub.io/api/customer-credit/1
+Dhiego: 
+
+
+${http.port}
+
+dhiego_mule_demo_vivo
+
+http:
+  port: "8082"

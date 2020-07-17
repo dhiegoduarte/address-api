@@ -9,7 +9,8 @@ pipeline {
 
   environment {
     //adding a comment for the commit test
-    DEPLOY_CREDS = credentials('mule_demo')
+    DEPLOY_CREDS = credentials('mule_demo_vivo') 
+    // DEPLOY_CREDS = credentials('mule_demo') 
     MULE_VERSION = '4.3.0'
     BG = 'fe83db7a-c73a-437b-9bf1-e7ee83f4d07c'
     WORKER = 'Micro'
