@@ -2,8 +2,7 @@
 git hub repo dhiegoduarte / address-api / settings / webhook / http://54.164.197.208:8080/generic-webhook-trigger/invoke?token=mulesoft
 
 
-pom
-
+pom.xml
 <cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.3.0</muleVersion>
@@ -21,13 +20,11 @@ pom
 					</cloudHubDeployment>
 				</configuration>
 
-
-
-
-git init && git add . && git commit -m "first commit"
-git remote add origin git@github.com:dhiegoduarte/address-api.git
-git push -u origin master
+Jenkinsfile
 
 
 git add . && git commit -m "DevOps build"
 git push -u origin master
+
+
+http://localhost:8081/api/address?company=MuleSoft
