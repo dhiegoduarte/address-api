@@ -24,3 +24,5 @@ Jenkinsfile
 
 
 git add . && git commit -m "DevOps build" && git push -u origin master
+
+Usuário do jenkins com roles Cloud Admin em ambos as environments.
