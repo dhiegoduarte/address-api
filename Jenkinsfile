@@ -48,25 +48,32 @@ pipeline {
         ENVIRONMENT = 'Production'
       }
 
-      try {
+        
+
+      steps {
+        script {
+
+try {
                 timeout(time: var_PROD_TIME, unit: var_PROD_UNIT) {
                     input(
                         message: 'Deploy to PRODUCTION?'
                     )
-                }   
+                } 
 
-      // steps {
             // sh 'mvn -B -U -e -V clean -DskipTests package'
             sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
-      // }
 
-      } catch(err) { // timeout reached or input false org.jenkinsci.plugins.workflow.steps.FlowInterruptedException
+            } catch(err) { // timeout reached or input false org.jenkinsci.plugins.workflow.steps.FlowInterruptedException
                 echo "catch(err)"
                 echo "Deploy NOT applied!"
                 userInput = false
                 currentBuild.result = 'SUCCESS'
                 return
             }
+        }
+      }
+
+      
 
     }
 
