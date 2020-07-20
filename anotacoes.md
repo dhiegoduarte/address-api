@@ -45,6 +45,7 @@ cd /Users/dduarte/mule-enterprise-standalone-4.3.0/bin
 Faz deploy via console anypoint
 
 Manage API - Exchange - Orders API - implementation url com ngrok (8082)
+./ngrok http localhost:8082
 
 Marcelo: http://customer-credit-api-ws.us-e2.cloudhub.io/api/customer-credit/1
 Dhiego: 
