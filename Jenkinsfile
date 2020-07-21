@@ -46,9 +46,10 @@ pipeline {
       // environment {
       //   ENVIRONMENT = 'Development'
       // }
-      // steps {
-      //       sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
-      // }
+      steps {
+          sleep(time: 3, unit: 'SECONDS') 
+            // sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
+      }
     }
 
     stage('Deploy Sandbox') {
@@ -64,9 +65,10 @@ pipeline {
       // environment {
       //   ENVIRONMENT = 'Production'
       // }
-      // steps {
-      //       sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
-      // }
+      steps {
+          sleep(time: 3, unit: 'SECONDS') 
+            // sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
+      }
     }
 
   }
