@@ -50,6 +50,44 @@ Com a implementacao desse cenário a gente consegue demonstrar na prática, que 
 
 ---
 
+## Slide 14 - Chrome
+
+- Continuous Integration / Integração Contínua: A integração contínua é a prática de “juntar” rapidamente o código
+recém-desenvolvido ao corpo principal que será lançado.
+Economizando assim muito tempo quando a equipe está pronta
+para realizar uma liberação de uma nova versão. Ela é frequentemente o primeiro
+passo no caminho para a maturidade do DevOps. O processo de integração contínua envolve a veri cação do código, a sua compilação
+(geralmente executável binário) e a aplicação de alguns testes de
+validação.
+
+- Continuous Delivery / Entrega Contínua: A entrega contínua é uma extensão da integração contínua.
+Ao executar entregas continuamente, os times adicionam
+automação e testes para não apenas mesclar frequentemente o
+código, mas também obtê-lo quase pronto para a implantação. Em resumo, é a prática de ter a base de código continuamente em
+um estado pronto para implantação em produção pelo time de
+operações.
+
+- Continuous Deployment / Implantação Contínua: é a prática de
+automatizar todo o caminho até o deploy em produção, isso sem
+qualquer intervenção humana. É claro que para alcançar esse
+estágio é necessário um alto nível de maturidade dos estágios
+anteriores.
+
+- DevOps / Cultura: Mudança cultural e organizacional na empresa. Normalmnte adotando a organização de times multidisciplinares, (squad), com cada profissional responsável por uma estrutura de TI, porém dedicado ao time. Exemplo: desenvolvedor, analista de testes, infraestrutura, segurança etc. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://fcatae.visualstudio.com/_git/sonarqube?path=%2Fazure-pipelines.yml
 
 
@@ -60,6 +98,9 @@ Feedback Diogo:
 - low-code com classes java, implementacao mista.
 - perimetros de seguranca e reframe
 - parte do HIP como é o server on-premise? plataforma hibrida
+
+https://docs.mulesoft.com/mule-runtime/4.3/hadr-guide#zero-downtime-deployment-model
+zero downtime deployment - deploy via pipeline ao atualizar app chamar via postman
 
 
 Sonarqube

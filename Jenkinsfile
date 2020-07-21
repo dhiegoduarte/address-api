@@ -42,13 +42,31 @@ pipeline {
       }
     }
 
-    stage('Deploy') {
+    stage('Deploy Development') {
+      // environment {
+      //   ENVIRONMENT = 'Development'
+      // }
+      // steps {
+      //       sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
+      // }
+    }
+
+    stage('Deploy Sandbox') {
       environment {
         ENVIRONMENT = 'Sandbox'
       }
       steps {
             sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
       }
+    }
+
+    stage('Deploy Production') {
+      // environment {
+      //   ENVIRONMENT = 'Production'
+      // }
+      // steps {
+      //       sh 'mvn -DskipTests deploy -DmuleDeploy -Danypoint.username="$DEPLOY_CREDS_USR" -Danypoint.password="$DEPLOY_CREDS_PSW"'
+      // }
     }
 
   }
