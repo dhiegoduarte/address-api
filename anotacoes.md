@@ -1,115 +1,76 @@
 # POC Vivo
+https://docs.google.com/presentation/d/17wo6moggKGOv9-JpOAxVAkPnjkNRm-3u68ReBmDYb0g/edit?ts=5f15b00a#slide=id.g86704c6399_0_1
 
-## Agenda
-## Slide 1, 2, 3, 4
+## Marcelo
+## Slide 1, 2, 3, 4, 5, 6, 7
 
-## API Manager
-Mostrar tudo e depois ele fazer (Postman Heroku, API Manager, Policies, Postman Proxy)
+## Slide 8 - Chrome
+Para os casos de uso 3 e 4, referentes a publish subscribe e SAGA, nos preparamos um cenário que vai abordar os seguintes tópicos:
+Processamento assíncrono 
+Mensajeria 
+Controle de transação
+Deploy híbrido
 
-### Postman Heroku
+## Slide 9 - Chrome
+O cenário implementado é a realizacao da ordem de compra de produto, através de crédito pré-pago, onde o fluxo é:
 
-API Manager / Create new API / Dhiego Phone API / HTTP API / Endpoint with Proxy / Select if you are managing this API using Mule 4 or above. 
-/ implementation https://phone-service.herokuapp.com/phonesdata / 
+- O Microservico Orders recebe uma ordem de compra, realiza uma transacao local salvando as informações dessa ordem e publica uma mensagem de ordem criada.
+- O microserviço Customer Credit consome a mensagem de ordem criada e valida se o cliente tem crédito para realizar a compra do produto. Se o cliente possuir credito suficiente, uma mensagem de credito reservado é publicada. Se o cliente não possuir credito suficiente uma mensagem de credito excedido é publicada.
+- O microserviço Orders então é notificado e se o credito foi reservado com sucesso a ordem é processada ou se o credito foi excedido o rollback da ordem é executado.
 
-API Configuration 
-runtime version 4.3
-Proxy application name phone-proxy-dhiego
+Até aqui tudo bem? Alguma dúvida?
 
-Add consumer / copiar de Proxy URL
-http://phone-proxy-dhiego.us-e2.cloudhub.io
-Labels: No policies
+Os componentes que fazem parte dessa solução são:
 
-Postman Proxy copiar o endpoint e ajustar a URL do proxy
+## MQ - Firefox
+As filas. Neste caso estamos usando o serviço de mensageria na nuvem da plataforma Anypoint mas poderiamos estar usando qualquer serviço de mensageria como Kafka por exemplo.
 
-Policy Quality of Service
-Rate limiting
-3 por minuto
-Expose headers
+## Runtime manager - Firefox
+E os dois microserviços que são o Orders que esta sendo executado em um servidor on-premise e o Customer credit que está sendo executado na nuvem.
 
-Testar no Postman
+Até aqui tudo bem? Alguma dúvida?
 
-Apagar Rate limiting
+## Slide 9 - Chrome
+Entao agora nos vamos demonstrar o funcionamento do cenário onde o cliente possui credito. Em um cenário real normalmente a transacoes seriam registros no banco de dados do microserviço, mas para a POC, para demonstrar de uma forma bem visual, as transacoes locais serao representadas com a geracao de um arquivo no file system.
 
-Adicionar SLA Tiers
-Free - Automatic - 1 por minuto
-Gold - Automatic - 100 por minuto
-Platinum - Manual - 1000 por minuto
+## Postman + Finder
+Orders 50, 30, 20 
 
-Adicionar Rate limiting + SLA
-Expose headers
+Agora o cliente não tem mais credito entao a proxima ordem tera sua transacao local criada e logo em seguida com a notificacao do servico Customer Credit que o cliente possui credito excedido sera efetuado o rollback dessa transacao, ou seja, o arquivo criado será apagado.
 
-Testar no Postman sem credenciais
-
-Exchange request Access SLA Gold
-
-Testar no Postman com credenciais
-
-## Slide 5
-
-## Slide 6
-Custom policy response
-
-Request Condition
-#[attributes.headers['X-Mule-Demo'] != null]
-
-HTTP Body
-#[vars.payload default 'teste']
-
-Testar no Postman com credenciais e header X-Mule-Demo
-
-## Catae Slides 7, 8
-
-## Slide 9 e 10
-
-Demonstrar
-## Design Center
-Create API Spec / Orders Dhiego / Title: Orders / Version: 1.0 / application/json / Resources: orders / GET / Response 200 / Add Body
-[
-    { "order_id": "pedido-0001" },
-    { "order_id": "pedido-0002" },
-    { "order_id": "pedido-0003" }
-]
-
-Mocking service / Testar
-
-Passar para Thibério: https://github.com/mule-br/workshop/blob/master/pdf/Modulo%201%20-%20Criando%20uma%20API%20no%20Design%20Center.pdf
-
-## Slide 11
+## Postman + Finder
+Orders 10
 
 ## Studio
-Novo projeto api-customer from design center Customer API / delete customer-api.xml / RODAR no mule local
 
-Open Console e testar o Customer POST 
+## Slide 9 - Chrome
+Com a implementacao desse cenário a gente consegue demonstrar na prática, que em uma arquitetura de microserviços com transacoes distribuidas, para garantir a consistencia da informacoes entre os diferentes microserviços, a implementacao do design pattern SAGA por coreografia pode ser utilizada.
 
-Studio Stop server 
-
-Adicionar conector Salesforce / Add Modules / Salesforce
-
-Flow Get Csutomer colocar Query da sales antes do transform
-
-sfdc:
-    username: "demos+mythical_lab@mulesoft.com"
-    password: "Elum1379"
-    securityToken: "7ZDtkYMazEtbvgdaaPrtMGit"
-
-Query:
-SELECT Id, Name, Phone
-FROM Account
-WHERE BillingCountry = 'BR'
-
-Transform apaga tudo e liga Payload com Array e
-a. Id → id
-b. Name → name
-c. Phone → phone
-
-RODAR no mule local
-
-Open Console e testar o Customer GET 
+## Slide 10 - Chrome
 
 ---
 
+https://fcatae.visualstudio.com/_git/sonarqube?path=%2Fazure-pipelines.yml
 
 
+
+
+Feedback Diogo: 
+
+- low-code com classes java, implementacao mista.
+- perimetros de seguranca e reframe
+- parte do HIP como é o server on-premise? plataforma hibrida
+
+
+Sonarqube
+Provide a token
+Analyze "address-api": 6873326e3ad404ff76e534e1960b05b0a3b1eeb4
+
+mvn sonar:sonar -Dsonar.projectKey=address-api -Dsonar.host.url=http://52.90.15.238:9000 -Dsonar.login=6873326e3ad404ff76e534e1960b05b0a3b1eeb4
+
+Quality profiles
+Mule	
+Default: MuleSoft Rules for Mule 4.x
 
 
 
@@ -212,3 +173,10 @@ orders-proxy-vivo
 
 
 contextualizar q precisa ter credito (customer-credit) para compra do produto (orders)
+
+
+--- 
+
+
+
+

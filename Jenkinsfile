@@ -19,6 +19,8 @@ pipeline {
     APP_NAME='address-api-vivo' //vivo
     PROD_TIME = "24"
     PROD_UNIT = "HOURS" // SECONDS, MINUTES, HOURS
+    URL_SONAR = "http://52.90.15.238:9000"
+    LOGIN_SONAR = "6873326e3ad404ff76e534e1960b05b0a3b1eeb4"
   }
 
   stages {
@@ -31,6 +33,12 @@ pipeline {
     stage('Test') {
       steps {
           sh "mvn test"
+      }
+    }
+
+    stage('Code Quality') {
+      steps {
+          sh 'mvn sonar:sonar -Dsonar.projectKey=address-api -Dsonar.host.url="$URL_SONAR" -Dsonar.login="$LOGIN_SONAR"'
       }
     }
 
