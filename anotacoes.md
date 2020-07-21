@@ -50,32 +50,46 @@ Com a implementacao desse cenário a gente consegue demonstrar na prática, que 
 
 ---
 
+## Slide 13 - Chrome
+Para o cenário de DevOps nos vamos falar sobre os seguintes tópicos:
+- Versionamento com github
+- Build com Maven
+- Jenkins e Jenkinsfile para implementação do pipeline de devops
+- SonarQube para qualidade do código
+- Deploy com Maven
+- Execução de todos os passos para a Implantação Contínua (Continuous Deployment)
+- Execução de testes funcionais
+
+
 ## Slide 14 - Chrome
-
-- Continuous Integration / Integração Contínua: A integração contínua é a prática de “juntar” rapidamente o código
-recém-desenvolvido ao corpo principal que será lançado.
-Economizando assim muito tempo quando a equipe está pronta
-para realizar uma liberação de uma nova versão. Ela é frequentemente o primeiro
-passo no caminho para a maturidade do DevOps. O processo de integração contínua envolve a veri cação do código, a sua compilação
-(geralmente executável binário) e a aplicação de alguns testes de
-validação.
-
-- Continuous Delivery / Entrega Contínua: A entrega contínua é uma extensão da integração contínua.
-Ao executar entregas continuamente, os times adicionam
-automação e testes para não apenas mesclar frequentemente o
-código, mas também obtê-lo quase pronto para a implantação. Em resumo, é a prática de ter a base de código continuamente em
-um estado pronto para implantação em produção pelo time de
-operações.
-
-- Continuous Deployment / Implantação Contínua: é a prática de
-automatizar todo o caminho até o deploy em produção, isso sem
-qualquer intervenção humana. É claro que para alcançar esse
-estágio é necessário um alto nível de maturidade dos estágios
-anteriores.
-
-- DevOps / Cultura: Mudança cultural e organizacional na empresa. Normalmnte adotando a organização de times multidisciplinares, (squad), com cada profissional responsável por uma estrutura de TI, porém dedicado ao time. Exemplo: desenvolvedor, analista de testes, infraestrutura, segurança etc. 
+Essa figura representa o “caminho” evolutivo para o DevOps, começando com o desenvolvimento ágil e passando por diversos estágios de automação até alcançar uma cultura de DevOps no nível organizacional. A gente pode utilziar esses estágios como base para identificar o nível de maturidade de uma empresa em relação ao DevOps.
 
 
+- Continuous Integration / Integração Contínua: A integração contínua é a prática de mesclar o código recém-desenvolvido com o repositório central. Ela é frequentemente o primeiro passo no caminho para a maturidade do DevOps. Envolve a vericação do código, a compilação e testes de validação.
+
+- Continuous Delivery / Entrega Contínua: Na entrega contínua é adicionada novas automações e testes para além de mesclar o código com o repositório central também deixa-lo pronto para a implantação, ou seja, realiza todas as validações necessárias para garantir a integridade e gera o artefato que será publicado, como por exemplo o .jar
+
+- Continuous Deployment / Implantação Contínua: é a prática de automatizar todo o caminho até o deploy em produção, sem
+qualquer intervenção humana. 
+
+- DevOps / Cultura: Mudança cultural e organizacional na empresa. Normalmnte é adotada a criação de times multidisciplinares, com cada profissional responsável por uma estrutura de TI dedicado no time. Exemplo: desenvolvedor, analista de testes, infraestrutura, segurança etc. Normalmente esse time é o responsável por todo o cliclo de vida dos artefatos por eles gerados. Mudança de times organizados por projeto para times organizados por pdoduto.
+
+## Slide 15
+Visão do pipeline executado e relatório da analise do código no SonarQube.
+
+## Studio
+Alterar versão pom.xml
+
+Comitar - https://github.com/dhiegoduarte/address-api
+
+Acompanhar execucao pipeline - http://54.164.197.208:8080/blue/organizations/jenkins/Address%20API/activity
+
+Deploy em Sandbox (ver versão do jar) - Anypoint Runtime Manager
+
+Testar Postman - zero downtime deployment - deploy via pipeline ao atualizar app chamar via postman
+
+Testes funcionais
+Anypoint Monitoring - Functional Monitoring
 
 
 
