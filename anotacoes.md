@@ -50,6 +50,13 @@ Com a implementacao desse cenário a gente consegue demonstrar na prática, que 
 
 ---
 
+Bom dia a todos, obrigado pelo tempo de vcs e pela oportunidade de conversarmos novamente. Do lado da Mulesoft o time que está presente hoje é o mesmo que participou ontem, ou seja, eu e o Marcelo como Solution Engineer, Fabricio Catae que é o Manager do time de Solution Engineer e o Diogo Francisco que é o Account Executive.
+
+## Slide 2 - Chrome
+Dando continuidade na nossa agenda hoje nos vamos falar sobre DevOps e estratégias de migração.
+
+## Slide 12 - Chrome
+
 ## Slide 13 - Chrome
 Para o cenário de DevOps nos vamos falar sobre os seguintes tópicos:
 - Versionamento com github
@@ -58,12 +65,10 @@ Para o cenário de DevOps nos vamos falar sobre os seguintes tópicos:
 - SonarQube para qualidade do código
 - Deploy com Maven
 - Execução de todos os passos para a Implantação Contínua (Continuous Deployment)
-- Execução de testes funcionais
 
 
 ## Slide 14 - Chrome
 Essa figura representa o “caminho” evolutivo para o DevOps, começando com o desenvolvimento ágil e passando por diversos estágios de automação até alcançar uma cultura de DevOps no nível organizacional. A gente pode utilziar esses estágios como base para identificar o nível de maturidade de uma empresa em relação ao DevOps.
-
 
 - Continuous Integration / Integração Contínua: A integração contínua é a prática de mesclar o código recém-desenvolvido com o repositório central. Ela é frequentemente o primeiro passo no caminho para a maturidade do DevOps. Envolve a vericação do código, a compilação e testes de validação.
 
@@ -75,10 +80,15 @@ qualquer intervenção humana.
 - DevOps / Cultura: Mudança cultural e organizacional na empresa. Normalmnte é adotada a criação de times multidisciplinares, com cada profissional responsável por uma estrutura de TI dedicado no time. Exemplo: desenvolvedor, analista de testes, infraestrutura, segurança etc. Normalmente esse time é o responsável por todo o cliclo de vida dos artefatos por eles gerados. Mudança de times organizados por projeto para times organizados por pdoduto.
 
 ## Slide 15
-Visão do pipeline executado e relatório da analise do código no SonarQube.
+Visão do pipeline executado e o relatório da analise do código no SonarQube.
 
-## Studio
-Alterar versão pom.xml
+## Demo
+Chrome - Github
+
+Visual Code - Jenkinsfile
+
+Studio - Alterar versão pom.xml
+
 
 Comitar - https://github.com/dhiegoduarte/address-api
 
@@ -88,21 +98,13 @@ Deploy em Sandbox (ver versão do jar) - Anypoint Runtime Manager
 
 Testar Postman - zero downtime deployment - deploy via pipeline ao atualizar app chamar via postman
 
-Testes funcionais
-Anypoint Monitoring - Functional Monitoring
+
+---
 
 
+## BKP
+Azure DevOps: https://fcatae.visualstudio.com/_git/sonarqube?path=%2Fazure-pipelines.yml
 
-
-
-
-
-
-
-
-
-
-https://fcatae.visualstudio.com/_git/sonarqube?path=%2Fazure-pipelines.yml
 
 
 
