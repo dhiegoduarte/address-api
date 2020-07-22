@@ -13,8 +13,8 @@ pipeline {
     // DEPLOY_CREDS = credentials('mule_demo') //dhiego
     MULE_VERSION = '4.3.0'
     // BG = 'fe83db7a-c73a-437b-9bf1-e7ee83f4d07c' //dhiego
-    // BG = "${BUSINESS_GROUP}"
-    BG = 'aa909b7f-1f46-4ad6-a3ce-7ab7676aa5f8' //vivo
+    BG = "${BUSINESS_GROUP}"
+    // BG = 'aa909b7f-1f46-4ad6-a3ce-7ab7676aa5f8' //vivo
     WORKER = 'Micro'
     // APP_NAME='address-api' //dhiego
     APP_NAME='address-api-vivo' //vivo
