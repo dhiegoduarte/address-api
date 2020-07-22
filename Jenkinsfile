@@ -12,16 +12,11 @@ pipeline {
     DEPLOY_CREDS = credentials('mule_demo_vivo') //vivo
     // DEPLOY_CREDS = credentials('mule_demo') //dhiego
     MULE_VERSION = '4.3.0'
-    // BG = 'fe83db7a-c73a-437b-9bf1-e7ee83f4d07c' //dhiego
-    // BG = "${BUSINESS_GROUP}"
-    // BG = 'aa909b7f-1f46-4ad6-a3ce-7ab7676aa5f8' //vivo
     WORKER = 'Micro'
     // APP_NAME='address-api' //dhiego
     APP_NAME='address-api-vivo' //vivo
     PROD_TIME = "24"
     PROD_UNIT = "HOURS" // SECONDS, MINUTES, HOURS
-    // URL_SONAR = "http://52.90.15.238:9000"
-    // LOGIN_SONAR = "6873326e3ad404ff76e534e1960b05b0a3b1eeb4"
   }
 
   stages {
