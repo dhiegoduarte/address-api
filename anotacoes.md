@@ -49,55 +49,62 @@ Com a implementacao desse cenário a gente consegue demonstrar na prática, que 
 ## Slide 10 - Chrome
 
 ---
-
-Bom dia a todos, obrigado pelo tempo de vcs e pela oportunidade de conversarmos novamente. Do lado da Mulesoft o time que está presente hoje é o mesmo que participou ontem, ou seja, eu e o Marcelo como Solution Engineer, Fabricio Catae que é o Manager do time de Solution Engineer e o Diogo Francisco que é o Account Executive.
+## Slide 1 - Chrome
+Bom dia a todos, obrigado pelo tempo de vcs e pela oportunidade de conversarmos novamente. Do lado da Mulesoft o time que está presente hoje é o mesmo que participou ontem, ou seja, eu e o Marcelo como Solution Engineer, o Fabricio Catae que é o Manager do time de Solution Engineer e o Diogo Francisco que é o Account Executive.
 
 ## Slide 2 - Chrome
-Dando continuidade na nossa agenda hoje nos vamos falar sobre DevOps e estratégias de migração.
+Dando continuidade na nossa agenda hoje nos vamos falar sobre DevOps e sobre algumas estratégias de migração de outras plataformas para a plataforma da Mule.
 
 ## Slide 12 - Chrome
 
 ## Slide 13 - Chrome
-Para o cenário de DevOps nos vamos falar sobre os seguintes tópicos:
+Para o cenário de DevOps a gente vai abordar os seguintes tópicos:
 - Versionamento com github
 - Build com Maven
 - Jenkins e Jenkinsfile para implementação do pipeline de devops
 - SonarQube para qualidade do código
 - Deploy com Maven
 - Execução de todos os passos para a Implantação Contínua (Continuous Deployment)
-
+- Testes funcionais
 
 ## Slide 14 - Chrome
 Essa figura representa o “caminho” evolutivo para o DevOps, começando com o desenvolvimento ágil e passando por diversos estágios de automação até alcançar uma cultura de DevOps no nível organizacional. A gente pode utilziar esses estágios como base para identificar o nível de maturidade de uma empresa em relação ao DevOps.
 
-- Continuous Integration / Integração Contínua: A integração contínua é a prática de mesclar o código recém-desenvolvido com o repositório central. Ela é frequentemente o primeiro passo no caminho para a maturidade do DevOps. Envolve a vericação do código, a compilação e testes de validação.
+- Continuous Integration É a prática de mesclar o código recém-desenvolvido com o repositório central. Ela é frequentemente o primeiro passo no caminho para a maturidade do DevOps. Envolve a vericação do código, a compilação e testes de validação.
 
-- Continuous Delivery / Entrega Contínua: Na entrega contínua é adicionada novas automações e testes para além de mesclar o código com o repositório central também deixa-lo pronto para a implantação, ou seja, realiza todas as validações necessárias para garantir a integridade e gera o artefato que será publicado, como por exemplo o .jar
+- Em Continuous Delivery são adicionadas novas automações e testes para além de mesclar o código com o repositório central também deixa-lo pronto para a implantação, ou seja, realizar todas as validações necessárias para garantir a integridade e gerar o artefato que será publicado, como por exemplo o arquivo .jar
 
-- Continuous Deployment / Implantação Contínua: é a prática de automatizar todo o caminho até o deploy em produção, sem
-qualquer intervenção humana. 
+- Já Continuous Deployment é a prática de automatizar todo o caminho até o deploy em produção, sem qualquer intervenção humana. 
 
-- DevOps / Cultura: Mudança cultural e organizacional na empresa. Normalmnte é adotada a criação de times multidisciplinares, com cada profissional responsável por uma estrutura de TI dedicado no time. Exemplo: desenvolvedor, analista de testes, infraestrutura, segurança etc. Normalmente esse time é o responsável por todo o cliclo de vida dos artefatos por eles gerados. Mudança de times organizados por projeto para times organizados por pdoduto.
+- E quando a gente fala de uma empresa estar operando em modo de DevOps é referente a mudança cultural e organizacional na empresa. Normalmnte é adotada a criação de times multidisciplinares, com cada profissional responsável por uma estrutura de TI dedicado no time. Por exemplo: desenvolvedor, analista de testes, de infraestrutura, de segurança etc. Normalmente esse time é o responsável por todo o cliclo de vida dos artefatos por eles gerados. Então, normalmente o que a gente ve nas empresas nessa fase é a mudança de times organizados por projeto para times organizados por produto.
+
+Até aqui tudo bem pessoal? Alguma dúvida, algum comentário? 
+
+Hoje vcs já possuem uma cultura de DevOps?
 
 ## Slide 15
-Visão do pipeline executado e o relatório da analise do código no SonarQube.
+Aqui é uma visão do pipeline e o relatório da analise do código da nossa POC. Esse é o resultdo final do pipeline executado.
 
 ## Demo
-Chrome - Github
+Chrome - Github https://github.com/dhiegoduarte/address-api
 
 Visual Code - Jenkinsfile
 
 Studio - Alterar versão pom.xml
 
+Comitar - git add . && git commit -m "DevOps demo Telefonica/Vivo" && git push -u origin master
 
-Comitar - https://github.com/dhiegoduarte/address-api
+Chrome - Acompanhar execucao pipeline - http://54.164.197.208:8080/blue/organizations/jenkins/Address%20API/activity
 
-Acompanhar execucao pipeline - http://54.164.197.208:8080/blue/organizations/jenkins/Address%20API/activity
+Chrome - SonarQube http://52.90.15.238:9000/projects/favorite
 
-Deploy em Sandbox (ver versão do jar) - Anypoint Runtime Manager
+Chrome - Anypoint Runtime Manager: Deploy em Sandbox (ver versão do jar)
 
-Testar Postman - zero downtime deployment - deploy via pipeline ao atualizar app chamar via postman
+Postman - zero downtime deployment - deploy via pipeline ao atualizar app chamar via postman
 
+Chrome - Anypoint Monitoring: Functional Monitoring - testes funcionais
+
+Bom pessoal o que eu tinha planejado sobre DevOps para mostrar para vcs é isso. Alguém tem alguma dúvida ou quer fazer algum comentário?
 
 ---
 
