@@ -8,7 +8,7 @@ pipeline {
   }
 
   environment {
-    //adding a comment for the commit test
+    //configurado no Jenkins
     DEPLOY_CREDS = credentials('mule_demo_vivo') //vivo
     // DEPLOY_CREDS = credentials('mule_demo') //dhiego
     MULE_VERSION = '4.3.0'
@@ -20,8 +20,8 @@ pipeline {
     APP_NAME='address-api-vivo' //vivo
     PROD_TIME = "24"
     PROD_UNIT = "HOURS" // SECONDS, MINUTES, HOURS
-    URL_SONAR = "http://52.90.15.238:9000"
-    LOGIN_SONAR = "6873326e3ad404ff76e534e1960b05b0a3b1eeb4"
+    // URL_SONAR = "http://52.90.15.238:9000"
+    // LOGIN_SONAR = "6873326e3ad404ff76e534e1960b05b0a3b1eeb4"
   }
 
   stages {
